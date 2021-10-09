@@ -13,7 +13,7 @@ async def file_down(client,message):
 		file = message
 		ms = await message.reply_text("``` Trying To Download...```")
 		try:
-		  def progress(current, total):
+		  async def progress(current, total):
 		  	time.sleep(3)
 		  	await ms.edit(f"Downloading ----{current * 100 / total:.1f}%")
 		  path = await client.download_media(message = file,progress=progress)
