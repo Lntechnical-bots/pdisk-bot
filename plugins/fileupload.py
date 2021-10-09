@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 from pdisk import pdisk_url
 from database import find
 import os
+import time 
 APPNAME = os.environ.get('APPNAME',"")
 
 
@@ -12,8 +13,10 @@ async def file_down(client,message):
 		file = message
 		ms = await message.reply_text("``` Trying To Download...```")
 		try:
-		  path = await client.download_media(message = file)
-
+		  def progress(current, total):
+		  	time.sleep(3)
+		  	await ms.edit(f"Downloading ----{current * 100 / total:.1f}%")
+		  path = await client.download_media(message = file,progress=progress)
 		except Exception as e:
 			await ms.edit(e)
 		filename = path.split("/")[-1]
