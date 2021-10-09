@@ -13,11 +13,11 @@ async def file_down(client,message):
 		ms = await message.reply_text("``` Trying To Download...```")
 		try:
 		  path = await client.download_media(message = file)
-		  await ms.edit(f"{path}")
+
 		except Exception as e:
 			await ms.edit(e)
 		filename = path.split("/")[-1]
-		link =f"https://{APPNAMW}.herokuapp.com/{filename}"
+		link =f"https://{APPNAME}.herokuapp.com/{filename}"
 		res = pdisk_url(api_key,link,filename)
 		try:
 			id = res['data']['item_id']
