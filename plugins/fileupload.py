@@ -21,7 +21,7 @@ async def file_down(client,message):
 		res = pdisk_url(api_key,link,filename)
 		try:
 			id = res['data']['item_id']
-			await message.reply_text(f'Title : {title}\n\nURL : ```https://cofilink.com/share-video?videoid={id}```\n\n**This File Will Be Uploading in  10 - 15 Minutes **',reply_to_message_id = message.message_id)
+			await message.reply_text(f'Title : {filename}\n\nURL : ```https://cofilink.com/share-video?videoid={id}```\n\n**This File Will Be Uploading in  10 - 15 Minutes **',reply_to_message_id = message.message_id)
 		except:
 				e = res['msg']
 				await message.reply_text(f"Error: ```{e}```",reply_to_message_id = message.message_id)
