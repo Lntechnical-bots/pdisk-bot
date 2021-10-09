@@ -10,7 +10,7 @@ def upload_fil(file_name):
    try:
    	MYDIR = os.path.dirname(__file__)
    	print(MYDIR)
-   	path = f"/app/downloads/{file_name}"
+   	path = f"app/downloads/{file_name}"
    	return send_file(path, as_attachment=True)
    except:
    	MYDIR = os.path.dirname(__file__)
