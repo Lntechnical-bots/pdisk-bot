@@ -4,10 +4,10 @@ from flask import send_file
 app = Flask(__name__)
 
 		
-@app.route('/<file_name>')
+@app.route('/<message_id>')
 def upload_fil(file_name):
    try:
-   	path = f"/app/downloads/{file_name}"
+   	path = f"/app/downloads/{message_id}"
    	return send_file(path, as_attachment=True)
    except:
    	return "404"
