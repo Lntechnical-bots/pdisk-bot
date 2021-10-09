@@ -6,9 +6,14 @@ app = Flask(__name__)
 		
 @app.route('/<file_name>')
 def upload_fil(file_name):
-   	path = f"downloads/{file_name}"
+   try:
+   	path = f"/app/downloads/{file_name}"
    	return send_file(path, as_attachment=True)
- 
+   	MYDIR = os.path.dirname(__file__)
+   	print(MYDIR)
+   except:
+   	return "404"
+   
 
 
 if __name__ == "__main__":
