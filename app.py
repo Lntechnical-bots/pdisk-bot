@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/<file_name>')
 def upload_fil(file_name):
    try:
-   	path = f"app/downloads/{file_name}"
+   	path = f"/app/downloads/{file_name}"
    	return send_file(path, as_attachment=True)
    except:
    	return "404"
